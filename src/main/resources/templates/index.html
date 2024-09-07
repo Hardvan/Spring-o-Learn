@@ -20,6 +20,10 @@
             <input type="text" name="review" placeholder="Add a review"/>
             <button type="submit">+</button>
         </form>
+        <form action="/deleteAllReviews" method="post" style="margin-top: 10px;">
+            <input type="hidden" name="title" th:value="${book.title}"/>
+            <button type="submit">Delete All Reviews</button>
+        </form>
     </div>
 </div>
 </body>

@@ -29,4 +29,10 @@ public class BookController {
         bookService.addReview(title, review);
         return "redirect:/";
     }
+
+    @PostMapping("/deleteAllReviews")
+    public String deleteAllReviews(@RequestParam String title) {
+        bookService.deleteAllReviews(title);
+        return "redirect:/";
+    }
 }

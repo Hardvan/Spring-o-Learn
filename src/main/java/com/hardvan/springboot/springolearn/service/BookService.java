@@ -33,4 +33,13 @@ public class BookService {
             }
         }
     }
+
+    public void deleteAllReviews(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                book.getReviews().clear();
+                break;
+            }
+        }
+    }
 }
