@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/automater.py
+/src/main/output/contents.txt
+/src/main/output/contents.md
