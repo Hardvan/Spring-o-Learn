@@ -1,15 +1,15 @@
-### Spring-o-Learn: Library Management System
+# Spring-o-Learn: Library Management System
 
 Welcome to **Spring-o-Learn**, a Spring Boot-based Library Management System. This project allows users to browse a list
 of books, add reviews, and delete all reviews associated with a book.
 
-### Features
+## Features
 
 - **View Books**: Displays a list of books with their details (title, description, and reviews).
 - **Add Review**: Users can submit a review for a specific book.
 - **Delete All Reviews**: Users can remove all reviews for a specific book.
 
-### Table of Contents
+## Table of Contents
 
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
@@ -19,18 +19,18 @@ of books, add reviews, and delete all reviews associated with a book.
 - [Data Flow](#data-flow-in-mvc)
 - [Project Files Overview](#project-files-overview)
 
-### Getting Started
+## Getting Started
 
 This project is a basic implementation of Spring Boot's MVC architecture, using Thymeleaf as a templating engine. All
 the book data is stored in a JSON file, and reviews are managed dynamically.
 
-### Prerequisites
+## Prerequisites
 
 - **Java**: JDK 17+
 - **Maven**: To manage dependencies and build the project.
 - **Git**: To clone the project.
 
-### Project Installation
+## Project Installation
 
 1. **Clone the Repository**
 
@@ -63,7 +63,7 @@ The app will be available on `https://localhost:8090`.
 > The port number 8090 is configured in the [`application.properties`](src/main/resources/application.properties) file.
 > You can change it to any available port.
 
-### Project Structure
+## Project Structure
 
 ```plaintext
 Spring-o-Learn/
@@ -81,7 +81,7 @@ Spring-o-Learn/
       └── test/                         # Test cases
 ```
 
-### MVC Architecture Flow
+## MVC Architecture Flow
 
 The **Spring-o-Learn** project follows the MVC (Model-View-Controller) architecture.
 
@@ -97,7 +97,7 @@ The **Spring-o-Learn** project follows the MVC (Model-View-Controller) architect
 4. **Service**: `BookService` reads book data from a JSON file (`books_data.json`) and contains business logic to manage
    reviews.
 
-### Data Flow in MVC
+## Data Flow in MVC
 
 - **Client Request**: Users send requests (e.g., to view books or add a review).
 
@@ -112,7 +112,7 @@ The **Spring-o-Learn** project follows the MVC (Model-View-Controller) architect
 - **View Rendering**: The `Controller` adds the necessary data to the `Model`, which is then passed to the Thymeleaf
   templates to render the UI.
 
-### Project Files Overview
+## Project Files Overview
 
 1. **SpringolearnApplication.java**: Main entry point for the Spring Boot application.
 2. **BookController.java**: Handles routes such as viewing books (`/`), adding reviews (`/addReview`), and deleting
