@@ -7,6 +7,7 @@ public class Book {
     private String title;
     private String imageUrl;
     private String description;
+    private List<String> genres;
     private List<String> reviews;
 
     // Constructor
@@ -45,6 +46,14 @@ public class Book {
         this.description = description;
     }
 
+    public List<String> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
+    }
+
     public List<String> getReviews() {
         return reviews;
     }
@@ -59,6 +68,7 @@ public class Book {
                 "title='" + title + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", description='" + description + '\'' +
+                ", genres=" + genres +
                 ", reviews=" + reviews +
                 '}';
     }

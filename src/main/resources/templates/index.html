@@ -12,6 +12,10 @@
         <img th:src="${book.imageUrl}" alt="Book Image"/>
         <h2 th:text="${book.title}">Book Title</h2>
         <p th:text="${book.description}">Book Description</p>
+        <p>Genres: </p>
+        <ul>
+            <li th:each="genre : ${book.genres}" th:text="${genre}">Genre</li>
+        </ul>
         <ul>
             <li th:each="review : ${book.reviews}" th:text="${review}">Review</li>
         </ul>
