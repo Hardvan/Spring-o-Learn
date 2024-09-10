@@ -12,11 +12,13 @@
 <ul class="cards">
     <li th:each="book : ${books}">
         <a href="" class="card">
-            <img th:src="${book.imageUrl}" class="card__image" alt="Book Image" />
+            <img th:src="${book.imageUrl}" class="card__image" alt="Book Image"/>
             <div class="card__overlay">
                 <div class="card__header">
-                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-                    <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="Author Thumbnail" />
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                        <path/>
+                    </svg>
+                    <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="Author Thumbnail"/>
                     <div class="card__header-text">
                         <h3 class="card__title" th:text="${book.title}">Book Title</h3>
                         <span class="card__status"><span th:text="${book.author}">Author Name</span>
@@ -25,26 +27,36 @@
                 </div>
                 <p class="card__description" th:text="${book.description}">Book Description</p>
                 <p class="card__genres">Genres:
-                    <ul>
-                        <li th:each="genre : ${book.genres}" th:text="${genre}">Genre</li>
-                    </ul>
+                <ul>
+                    <li th:each="genre : ${book.genres}" th:text="${genre}">Genre</li>
+                </ul>
                 </p>
                 <p class="card__status">Reviews:
                     <span th:each="review : ${book.reviews}" th:text="${review}">Review</span>
                 </p>
                 <form action="/addReview" method="post" class="card__form">
-                    <input type="hidden" name="title" th:value="${book.title}" />
-                    <input type="text" name="review" placeholder="Add a review" class="card__input" />
+                    <input type="hidden" name="title" th:value="${book.title}"/>
+                    <input type="text" name="review" placeholder="Add a review" class="card__input"/>
                     <button type="submit" class="card__button">+</button>
                 </form>
                 <form action="/deleteAllReviews" method="post" class="card__form" style="margin-top: 10px;">
-                    <input type="hidden" name="title" th:value="${book.title}" />
+                    <input type="hidden" name="title" th:value="${book.title}"/>
                     <button type="submit" class="card__button">Delete All Reviews</button>
                 </form>
             </div>
         </a>
     </li>
 </ul>
+
+<!-- New Review Text Field -->
+<div class="brutalist-container">
+    <input
+            placeholder="TYPE HERE"
+            class="brutalist-input smooth-type"
+            type="text"
+    />
+    <label class="brutalist-label">ENTER REVIEW</label>
+</div>
 
 </body>
 </html>
