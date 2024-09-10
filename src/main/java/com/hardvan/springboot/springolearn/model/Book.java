@@ -5,6 +5,7 @@ import java.util.List;
 public class Book {
     // Attributes
     private String title;
+    private String author;
     private String imageUrl;
     private String description;
     private List<String> genres;
@@ -14,10 +15,12 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String imageUrl, String description, List<String> reviews) {
+    public Book(String title, String author, String imageUrl, String description, List<String> genres, List<String> reviews) {
         this.title = title;
+        this.author = author;
         this.imageUrl = imageUrl;
         this.description = description;
+        this.genres = genres;
         this.reviews = reviews;
     }
 
@@ -28,6 +31,14 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getImageUrl() {

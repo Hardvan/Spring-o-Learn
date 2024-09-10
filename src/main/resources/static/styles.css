@@ -141,6 +141,7 @@ body {
 
 .card__status {
   font-size: .8em;
+  padding-left: 2em;
   color: #D7BDCA;
 }
 
@@ -153,4 +154,10 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+}
+
+.card__genres {
+  display: flex;
+  margin: 1em 0;
+  padding-left: 2em;
 }

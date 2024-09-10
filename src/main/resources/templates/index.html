@@ -19,12 +19,16 @@
                     <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="Author Thumbnail" />
                     <div class="card__header-text">
                         <h3 class="card__title" th:text="${book.title}">Book Title</h3>
-                        <span class="card__status">Genres:
-                            <span th:each="genre : ${book.genres}" th:text="${genre}">Genre</span>
+                        <span class="card__status"><span th:text="${book.author}">Author Name</span>
                         </span>
                     </div>
                 </div>
                 <p class="card__description" th:text="${book.description}">Book Description</p>
+                <p class="card__genres">Genres:
+                    <ul>
+                        <li th:each="genre : ${book.genres}" th:text="${genre}">Genre</li>
+                    </ul>
+                </p>
                 <p class="card__status">Reviews:
                     <span th:each="review : ${book.reviews}" th:text="${review}">Review</span>
                 </p>
