@@ -55,6 +55,23 @@ body {
   height: auto;
 }
 
+.card__form {
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  justify-content: center;
+  align-items: center;
+}
+
+.card__input {
+  margin-right: 10px; /* Adds some space between the input and the button */
+}
+
+.card__button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
 .card__overlay {
   position: absolute;
   bottom: 0;
