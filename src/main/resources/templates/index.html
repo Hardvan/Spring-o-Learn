@@ -26,13 +26,16 @@
                     </div>
                 </div>
                 <p class="card__description" th:text="${book.description}">Book Description</p>
-                <p class="card__genres">Genres:
-                <ul>
-                    <li th:each="genre : ${book.genres}" th:text="${genre}">Genre</li>
-                </ul>
-                </p>
-                <p class="card__status">Reviews:
-                    <span th:each="review : ${book.reviews}" th:text="${review}">Review</span>
+                <div class="card__genres">
+                    Genres:&nbsp;
+                    <span th:each="genre, iterStat : ${book.genres}">
+                        <span th:text="${genre}"></span><span th:if="${!iterStat.last}">,&nbsp;</span>
+                    </span>
+                </div>
+                <p class="card__reviews">Reviews:&nbsp;
+                    <span th:each="review, iterStat : ${book.reviews}">
+                        <span th:text="${review}"></span><span th:if="${!iterStat.last}">,&nbsp;</span>
+                    </span>
                 </p>
                 <!-- Review Form with New Brutalist Input Field -->
                 <form action="/addReview" method="post" class="card__form">

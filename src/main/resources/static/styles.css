@@ -36,6 +36,7 @@ body {
   flex-direction: row; /* Changed from column to row */
   justify-content: center;
   align-items: center;
+  maring-top: 10px;
 }
 
 .card__input {
@@ -118,7 +119,7 @@ body {
 }
 
 .card__description {
-  padding: 0 2em 2em;
+  padding-left: 2em;
   margin: 0;
   color: #D7BDCA;
   font-family: "MockFlowFont";
@@ -130,19 +131,23 @@ body {
 
 .card__genres {
   display: flex;
+  flex-wrap: wrap; /* Ensure genres wrap to next line if needed */
   margin: 1em 0;
   padding-left: 2em;
   color: #D7BDCA;
   font-family: "MockFlowFont";
 }
 
-.card__genres li {
+.card__reviews {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: 1em 0;
+  padding-left: 2em;
   color: #D7BDCA;
   font-family: "MockFlowFont";
 }
 
-
-/* From Uiverse.io by 0xnihilism */
 .brutalist-container {
   position: relative;
   width: 250px;
