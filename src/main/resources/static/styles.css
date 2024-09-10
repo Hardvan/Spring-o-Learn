@@ -8,6 +8,14 @@ body {
   background-color: #fef8f8;
 }
 
+.title {
+  font-family: "MockFlowFont";
+  font-size: 3em;
+  color: #6A515E;
+  text-align: center;
+  margin: 20px 0;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
