@@ -66,10 +66,7 @@ body {
   margin-right: 10px; /* Adds some space between the input and the button */
 }
 
-.card__button {
-  padding: 5px 10px;
-  cursor: pointer;
-}
+
 
 
 .card__overlay {
@@ -344,4 +341,8 @@ body {
   50% {
     border-color: #4a90e2;
   }
+}
+
+.card__button {
+
 }

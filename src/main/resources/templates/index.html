@@ -8,10 +8,10 @@
 <body>
 <h1>Spring-o-Learn Library Management System</h1>
 
-<!-- Transformed Book List -->
+<!-- Transformed Book List with New Review Text Field -->
 <ul class="cards">
     <li th:each="book : ${books}">
-        <a href="" class="card">
+        <div class="card">
             <img th:src="${book.imageUrl}" class="card__image" alt="Book Image"/>
             <div class="card__overlay">
                 <div class="card__header">
@@ -34,10 +34,19 @@
                 <p class="card__status">Reviews:
                     <span th:each="review : ${book.reviews}" th:text="${review}">Review</span>
                 </p>
+                <!-- Review Form with New Brutalist Input Field -->
                 <form action="/addReview" method="post" class="card__form">
                     <input type="hidden" name="title" th:value="${book.title}"/>
-                    <input type="text" name="review" placeholder="Add a review" class="card__input"/>
-                    <button type="submit" class="card__button">+</button>
+                    <div class="brutalist-container">
+                        <input
+                                placeholder="TYPE HERE"
+                                class="brutalist-input smooth-type"
+                                type="text"
+                                name="review"
+                        />
+                        <label class="brutalist-label">ENTER REVIEW</label>
+                    </div>
+                    <button type="submit" class="card__button">Submit Review</button>
                 </form>
                 <form action="/deleteAllReviews" method="post" class="card__form" style="margin-top: 10px;">
                     <input type="hidden" name="title" th:value="${book.title}"/>
@@ -47,16 +56,6 @@
         </a>
     </li>
 </ul>
-
-<!-- New Review Text Field -->
-<div class="brutalist-container">
-    <input
-            placeholder="TYPE HERE"
-            class="brutalist-input smooth-type"
-            type="text"
-    />
-    <label class="brutalist-label">ENTER REVIEW</label>
-</div>
 
 </body>
 </html>
