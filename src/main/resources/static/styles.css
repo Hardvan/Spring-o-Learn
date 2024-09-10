@@ -44,15 +44,13 @@ body {
   flex-direction: row; /* Changed from column to row */
   justify-content: center;
   align-items: center;
-  maring-top: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .card__input {
   margin-right: 10px; /* Adds some space between the input and the button */
 }
-
-
-
 
 .card__overlay {
   position: absolute;
