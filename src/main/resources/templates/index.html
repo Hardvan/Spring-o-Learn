@@ -8,12 +8,6 @@
 <body>
 <h1 class="title">Spring-o-Learn Library Management System</h1>
 
-<!-- Search bar to search by title -->
-<form action="/search" method="get" class="search-bar">
-    <input type="text" name="query" placeholder="Search by title">
-    <button type="submit" class="card__button">Search</button>
-</form>
-
 <!-- Transformed Book List with New Review Text Field -->
 <ul class="cards">
     <li th:each="book : ${books}">
