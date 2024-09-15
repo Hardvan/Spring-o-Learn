@@ -13,12 +13,15 @@ import java.util.List;
 public class BookService {
 
     private List<Book> books;
+    private BookFilter bookFilter;
+    private BookService bookService;
 
     public BookService() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         books = objectMapper.readValue(new File(
                 "src/main/resources/books_data.json"),
-                new TypeReference<List<Book>>() {});
+                new TypeReference<List<Book>>() {
+                });
     }
 
     public List<Book> getAllBooks() {
@@ -41,5 +44,11 @@ public class BookService {
                 break;
             }
         }
+    }
+
+    public List<Book> filterBooksByTitle(String query) {
+        return books.stream()
+                .filter(book -> book.getTitle().toLowerCase().contains(query.toLowerCase()))
+                .toList();
     }
 }
