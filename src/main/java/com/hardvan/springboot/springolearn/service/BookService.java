@@ -20,7 +20,7 @@ public class BookService {
                 "src/main/resources/books_data.json"),
                 new TypeReference<List<Book>>() {});
     }
-
+    
     public List<Book> getAllBooks() {
         return books;
     }

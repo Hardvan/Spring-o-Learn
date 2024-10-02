@@ -1,6 +1,7 @@
 package com.hardvan.springboot.springolearn.model;
 
 import java.util.List;
+import java.util.Set;
 
 public class Book {
     // Attributes
@@ -8,14 +9,14 @@ public class Book {
     private String author;
     private String imageUrl;
     private String description;
-    private List<String> genres;
+    private Set<String> genres;
     private List<String> reviews;
 
     // Constructor
     public Book() {
     }
 
-    public Book(String title, String author, String imageUrl, String description, List<String> genres, List<String> reviews) {
+    public Book(String title, String author, String imageUrl, String description, Set<String> genres, List<String> reviews) {
         this.title = title;
         this.author = author;
         this.imageUrl = imageUrl;
@@ -57,11 +58,11 @@ public class Book {
         this.description = description;
     }
 
-    public List<String> getGenres() {
+    public Set<String> getGenres() {
         return genres;
     }
 
-    public void setGenres(List<String> genres) {
+    public void setGenres(Set<String> genres) {
         this.genres = genres;
     }
 

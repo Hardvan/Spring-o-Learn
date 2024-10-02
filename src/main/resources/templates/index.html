@@ -8,57 +8,84 @@
 <body>
 <h1 class="title">Spring-o-Learn Library Management System</h1>
 
+<!-- Search book by title OR genre -->
+
+<form action="/search" method="get" class="search-bar">
+    <input type="text" name="query" placeholder="Search by title or genre">
+    <select name="searchType" onchange="updatePlaceHolder()">
+        <option value="title">Title</option>
+        <option value="genre">Genre</option>
+    </select>
+    <button type="submit" class="card__button">Search</button>
+</form>
+
+
 <!-- Transformed Book List with New Review Text Field -->
-<ul class="cards">
-    <li th:each="book : ${books}">
-        <div class="card">
-            <img th:src="${book.imageUrl}" class="card__image" alt="Book Image"/>
-            <div class="card__overlay">
-                <div class="card__header">
-                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                        <path/>
-                    </svg>
-                    <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="Author Thumbnail"/>
-                    <div class="card__header-text">
-                        <h3 class="card__title" th:text="${book.title}">Book Title</h3>
-                        <span class="card__status"><span th:text="${book.author}">Author Name</span>
+<div class="cards-container">
+    <ul class="cards">
+        <li th:each="book : ${books}">
+            <div class="card">
+                <img th:src="${book.imageUrl}" class="card__image" alt="Book Image"/>
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path/>
+                        </svg>
+                        <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="Author Thumbnail"/>
+                        <div class="card__header-text">
+                            <h3 class="card__title" th:text="${book.title}">Book Title</h3>
+                            <span class="card__status"><span th:text="${book.author}">Author Name</span>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="card__description" th:text="${book.description}">Book Description</p>
+                    <div class="card__genres">
+                        Genres:&nbsp;
+                        <span th:each="genre, iterStat : ${book.genres}">
+                            <span th:text="${genre}"></span><span th:if="${!iterStat.last}">,&nbsp;</span>
                         </span>
                     </div>
+                    <p class="card__reviews">Reviews:&nbsp;
+                        <span th:each="review, iterStat : ${book.reviews}">
+                            <span th:text="${review}"></span><span th:if="${!iterStat.last}">,&nbsp;</span>
+                        </span>
+                    </p>
+                    <!-- Review Form with New Brutalist Input Field -->
+                    <form action="/addReview" method="post" class="card__form">
+                        <input type="hidden" name="title" th:value="${book.title}"/>
+                        <div class="brutalist-container">
+                            <input
+                                    placeholder="TYPE HERE"
+                                    class="brutalist-input smooth-type"
+                                    type="text"
+                                    name="review"
+                            />
+                            <label class="brutalist-label">ENTER REVIEW</label>
+                        </div>
+                        <button type="submit" class="card__button">Submit Review</button>
+                    </form>
+                    <form action="/deleteAllReviews" method="post" class="card__form" style="margin-top: 10px;">
+                        <input type="hidden" name="title" th:value="${book.title}"/>
+                        <button type="submit" class="card__button">Delete All Reviews</button>
+                    </form>
                 </div>
-                <p class="card__description" th:text="${book.description}">Book Description</p>
-                <div class="card__genres">
-                    Genres:&nbsp;
-                    <span th:each="genre, iterStat : ${book.genres}">
-                        <span th:text="${genre}"></span><span th:if="${!iterStat.last}">,&nbsp;</span>
-                    </span>
-                </div>
-                <p class="card__reviews">Reviews:&nbsp;
-                    <span th:each="review, iterStat : ${book.reviews}">
-                        <span th:text="${review}"></span><span th:if="${!iterStat.last}">,&nbsp;</span>
-                    </span>
-                </p>
-                <!-- Review Form with New Brutalist Input Field -->
-                <form action="/addReview" method="post" class="card__form">
-                    <input type="hidden" name="title" th:value="${book.title}"/>
-                    <div class="brutalist-container">
-                        <input
-                                placeholder="TYPE HERE"
-                                class="brutalist-input smooth-type"
-                                type="text"
-                                name="review"
-                        />
-                        <label class="brutalist-label">ENTER REVIEW</label>
-                    </div>
-                    <button type="submit" class="card__button">Submit Review</button>
-                </form>
-                <form action="/deleteAllReviews" method="post" class="card__form" style="margin-top: 10px;">
-                    <input type="hidden" name="title" th:value="${book.title}"/>
-                    <button type="submit" class="card__button">Delete All Reviews</button>
-                </form>
             </div>
-        </div>
-    </li>
-</ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function updatePlaceholder() {
+        const searchType = document.getElementById("searchType").value;
+        const searchInput = document.getElementById("searchInput");
+        
+        if (searchType === "title") {
+            searchInput.placeholder = "Search by title";
+        } else if (searchType === "genre") {
+            searchInput.placeholder = "Search by genre";
+        }
+    }
+</script>
 
 </body>
 </html>
